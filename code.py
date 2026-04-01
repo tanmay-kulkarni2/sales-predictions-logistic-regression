@@ -24,7 +24,7 @@ from sklearn.preprocessing import StandardScaler
 
 # Train-Test Split
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.25, random_state=42, stratify=y
+    X, y, test_size=0.25, random_state=55, stratify=y
 )
 
 # Feature Scaling
@@ -45,7 +45,7 @@ param_grid = {
     'solver': ['liblinear']
 }
 
-grid = GridSearchCV(LogisticRegression(random_state=42), param_grid, cv=5, scoring='accuracy')
+grid = GridSearchCV(LogisticRegression(random_state=32), param_grid, cv=5, scoring='accuracy')
 grid.fit(X_train, y_train)
 
 best_model = grid.best_estimator_
